@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:35:16 by psprawka          #+#    #+#             */
-/*   Updated: 2017/09/20 18:35:20 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/05/22 17:13:47 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 # define NORMAL			"\x1B[0m"
 # define RED			"\x1B[31m"
@@ -32,7 +33,7 @@
 long int		ft_atoi(char *s);
 char			*ft_ftoa(double n);
 char			*ft_itoa(int nbr);
-char			*ft_strjoin(char *s1, char *s2);
+char			*ft_strjoin(char *s1, char *s2, bool sfree);
 char			*ft_strdup(char *src);
 int				ft_strlen(char *str);
 void			ft_bzero(void *s, unsigned int n);
@@ -45,6 +46,9 @@ char			*ft_strncpy(char *str, int size);
 int				ft_strstr(char *str, char *to_find);
 char			*ft_strncat(char *dest, char *src, size_t nb);
 char			*ft_strchr(char *str, char to_find);
+char			*ft_strsub(char *s, unsigned int start, size_t len);
+void			ft_putendl_fd(char *s, int fd);
+void			ft_putchar_fd(char c, int fd);
 
 int				ft_wstrlen(wchar_t *ws);
 char			*ft_strrev(char *str);
@@ -52,6 +56,8 @@ void			*ft_memalloc(size_t size);
 char			*ft_convert_hex(unsigned long int nb, int type);
 char			*ft_convert_octal(unsigned long int nb);
 char			*ft_convert_uni(wchar_t wide);
+
 int				ft_printf(const char *format, ...);
+int				gnl(const int fd, char **line);
 
 #endif

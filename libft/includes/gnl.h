@@ -1,13 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   gnl.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: filemaker <filemaker@student.42.fr>        +#+  +:+       +#+        */
+/*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/18 14:55:50 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/18 15:03:09 by filemaker        ###   ########.fr       */
+/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
+/*   Updated: 2018/05/21 16:00:48 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <sys/socket.h>
+#ifndef GNL_H
+# define GNL_H
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+# include "libft.h"
+
+# define	GNL_BUFF_SIZE 100
+
+int	get_next_line(const int fd, char **line);
+
+#endif

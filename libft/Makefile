@@ -6,7 +6,7 @@
 #    By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/24 11:51:37 by psprawka          #+#    #+#              #
-#    Updated: 2017/10/07 20:04:53 by psprawka         ###   ########.fr        #
+#    Updated: 2018/05/22 14:12:03 by psprawka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,8 @@ SRC = $(SRC_DIR)ft_atoi.c \
 	$(SRC_DIR)ft_itoa.c \
 	$(SRC_DIR)ft_memalloc.c \
 	$(SRC_DIR)ft_memset.c \
+	$(SRC_DIR)ft_putchar_fd.c \
+	$(SRC_DIR)ft_putendl_fd.c \
 	$(SRC_DIR)ft_strncat.c \
 	$(SRC_DIR)ft_strchr.c \
 	$(SRC_DIR)ft_strcmp.c \
@@ -40,7 +42,9 @@ SRC = $(SRC_DIR)ft_atoi.c \
 	$(SRC_DIR)ft_strnew.c \
 	$(SRC_DIR)ft_strrev.c \
 	$(SRC_DIR)ft_strstr.c \
+	$(SRC_DIR)ft_strsub.c \
 	$(SRC_DIR)ft_wstrlen.c \
+	$(SRC_DIR)gnl.c \
 
 SRC_PRINTF = $(PRINTF_DIR)atoi_and_ulltoa.c \
 		$(PRINTF_DIR)ft_printf.c \

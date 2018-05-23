@@ -6,7 +6,7 @@
 #    By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/09 23:21:55 by psprawka          #+#    #+#              #
-#    Updated: 2018/05/19 14:51:32 by psprawka         ###   ########.fr        #
+#    Updated: 2018/05/22 20:03:32 by psprawka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,14 @@ FLAGS = -g -Wall -Wextra -Werror
 HEADERS = includes/
 SRCS_DIR = srcs/
 
-SRCS_CLIENT =	$(SRCS_DIR)client.c 
-SRCS_SERVER =	$(SRCS_DIR)server.c 
+SRCS_CLIENT =	$(SRCS_DIR)client.c \
+		$(SRCS_DIR)tools.c \
+		$(SRCS_DIR)parse.c 
+	
+SRCS_SERVER =	$(SRCS_DIR)server.c \
+		$(SRCS_DIR)server_process.c \
+		$(SRCS_DIR)tools.c \
+		$(SRCS_DIR)parse.c 
 
 OBJS_CLIENT = $(SRCS_CLIENT:.c=.o)
 OBJS_SERVER = $(SRCS_SERVER:.c=.o)

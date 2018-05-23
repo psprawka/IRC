@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string_char.c                                   :+:      :+:    :+:   */
+/*   str_chr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 11:34:05 by psprawka          #+#    #+#             */
-/*   Updated: 2017/11/27 11:34:07 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/05/22 14:34:17 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	print_wchar_str(t_flags *bag, va_list ap)
 		return ;
 	}
 	while (ws != NULL && *ws != '\0' && ARGUMENT == 7)
-		s = ft_strjoin(s, ft_convert_uni(*ws++));
+		s = ft_strjoin(s, ft_convert_uni(*ws++), 1);
 	LEN = s == NULL ? 0 : ft_strlen(s);
 	printf_parse(bag);
 	while (MINUS == false && WIDTH-- > 0)
