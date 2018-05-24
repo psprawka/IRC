@@ -6,28 +6,32 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:25:37 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/22 21:06:31 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/05/23 13:44:19 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_irc.h"
 
-void	check_select_fds(fd_set *client_fds, int sockfd, int *maxfd)
+void	check_select_fds(fd_set *client_fds, int sockfd)
 {
-	int connfd;
+	// static t_client	*clients[FD_SETSIZE];
+	int 					connfd;
+	struct sockaddr_in		temp;
+	socklen_t				socklen;
 
-	if ((connfd = accept(sockfd, (struct sockaddr *)NULL, NULL)) == -1)
+	ft_bzero(&temp, sizeof(struct sockaddr_in));
+	socklen = sizeof(struct sockaddr_in);
+	if ((connfd = accept(sockfd, (struct sockaddr *)&temp, &socklen)) == -1)
 		ft_printf("Accept error\n");
 	else
 	{
-		ft_printf("New client connected\n");
+		ft_printf("New client connected [%d]\n", connfd);
+		// clients[connfd] = create_client(sockfd, ft_strdup(getenv("USER"))); 
 		FD_SET(connfd, client_fds);
-		if (connfd > *maxfd)
-			*maxfd = connfd;
 	}
 }
 
-void	runserver(fd_set client_fds, int maxfd, int sockfd)
+void	runserver(fd_set client_fds, int sockfd)
 {
 	int		i;
 	fd_set	select_fds;
@@ -36,16 +40,16 @@ void	runserver(fd_set client_fds, int maxfd, int sockfd)
 	{
 		i = 0;
 		select_fds = client_fds;
-		if (select(maxfd + 1, &select_fds, NULL, NULL, NULL) == -1)
+		if (select(FD_SETSIZE, &select_fds, NULL, NULL, NULL) == -1)
 			error(0, "Select", true);
-		while (i < maxfd + 1)
+		while (i < FD_SETSIZE)
 		{
 			if (FD_ISSET(i, &select_fds))
 			{
 				if (i == sockfd)
-					check_select_fds(&client_fds, sockfd, &maxfd);
+					check_select_fds(&client_fds, sockfd);
 				else
-					process_data(i, sockfd, maxfd, &client_fds);
+					process_data(i, sockfd, &client_fds);
 			}
 			i++;
 		}
@@ -79,20 +83,14 @@ int		main(int ac, char **av)
 	int						connfd;
 	fd_set					client_fds;
 	struct sockaddr_in		temp;
-	// socklen_t				socklen;
 	
 	parse_args_serv(ac, av);
 	sockfd = server_socket(ft_atoi(av[1]));
 	if (listen(sockfd, MAX_CLIENT_FD) == -1)
 		error(0, "Listen", true);
-	// ft_printf("Accept before\n");
-	// ft_bzero(&temp, sizeof(struct sockaddr_in));
-	// socklen = sizeof(struct sockaddr_in);
-	// accept(sockfd, (struct sockaddr *)&temp, &socklen);
-	// ft_printf("Accept after\n");
 	ft_bzero(&client_fds, sizeof(fd_set));
 	// ft_printf("%d I was listening!\n", sockfd);
 	FD_SET(sockfd, &client_fds);
-	runserver(client_fds, sockfd, sockfd);
+	runserver(client_fds, sockfd);
 	return (0);
 }

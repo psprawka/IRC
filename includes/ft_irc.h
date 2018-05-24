@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:30:53 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/22 20:41:09 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/05/23 15:47:57 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,14 @@
 # include <stdbool.h>
 # include <sys/time.h>
 # include <errno.h>
+# include <term.h>
+# include <curses.h>
 # include "libft.h"
 
 # define	BUFF_SIZE		64
 # define	MAX_CLIENT_FD	10
 # define	SERVPASSWD		"polcia"
+# define 	DEF_COLOR		CYAN
 
 typedef struct	s_client
 {
@@ -47,13 +50,13 @@ void	parse_args_client(int ac, char **av);
 /*
 **	server_process.c
 */
-void	process_data(int currfd, int sockfd, int maxfd, fd_set *client_fds);
+void	process_data(int currfd, int sockfd, fd_set *client_fds);
 
 /*
 **	server.c
 */
-void	check_select_fds(fd_set *client_fds, int sockfd, int *maxfd);
-void	runserver(fd_set client_fds, int maxfd, int sockfd);
+void	check_select_fds(fd_set *client_fds, int sockfd);
+void	runserver(fd_set client_fds, int sockfd);
 int		server_socket(int port);
 int		main(int ac, char **av);
 
