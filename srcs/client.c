@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:29:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/23 19:34:45 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/05/24 15:28:51 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	unset_termcaps(void)
 
 	if (tcgetattr(ttyslot(), &tset))
 		error(0, "Tcgetattr: Error restoring terminal settings\n", true);
-	tset.c_lflag &= ~ECHO;
-	tset.c_lflag |= ICANON;
+	tset.c_lflag &= ~(ECHO | ICANON);
 	tcsetattr(ttyslot(), TCSANOW, &tset);
 }
 
