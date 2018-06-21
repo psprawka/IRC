@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   client_message.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/20 17:24:12 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 13:38:27 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/21 13:10:17 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/21 13:24:28 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "irc.h"
 
-int		parse_args_serv(int ac, char **av)
+int		send_message_to_server(int sockfd)
 {
-	if (ac != 2)
-		error(1, NULL, true);
-	if (ft_atoi(av[1]) > 65535 || ft_atoi(av[1]) < 1024)
-		return (error(2, NULL, true));
+	char		*sendbuff;
+
+	gnl(1, &sendbuff);
+	if (send(sockfd, sendbuff, ft_strlen(sendbuff), 0) == -1)
+		return (error(0, "Send", true));
+	free(sendbuff);
 	return (EXIT_SUCCESS);
 }
 
-int		parse_args_client(int ac, char **av)
+int		recv_message_from_server(int sockfd)
 {
-	if (ac != 3)
-		return (error(3, NULL, true));
-	if (ft_atoi(av[1]) > 65535 || ft_atoi(av[1]) < 1024)
-		return (error(2, NULL, true));
+	char		getbuff[BUFF_SIZE];
+	int			ret;
+
+	if ((ret = recv(sockfd, getbuff, BUFF_SIZE, 0)) < 1)
+	{
+		printf("Server quit, try again later!\n");
+		return (EXIT_FAILURE);
+	}
+	ft_putendl_fd(getbuff, 1);
 	return (EXIT_SUCCESS);
 }

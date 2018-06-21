@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:35:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 04:31:44 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 14:20:07 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define BLUE			"\x1B[34m"
 # define MAGNETA		"\x1B[35m"
 # define CYAN			"\x1B[36m"
+# define WHITE			"\x1B[37m"
 # define PINK			"\033[38;5;200m"
 # define ORANGE			"\033[38;5;208m"
 # define PURPLE			"\033[38;5;55m"
@@ -36,6 +37,7 @@
 # define IS_ASCII(c)		(c >= 0 && c < 128) ? 1 : 0;
 # define IS_DIGIT(c)		(c > 47 && c < 58) ? 1 : 0;
 # define IS_PRINTABLE(c)	(c > 31 && c < 127) ? 1 : 0;
+# define IS_WHITE(c)		(c == '\t' || c == ' ' || c == '\v') ? 1 : 0
 
 # define TO_UPPER(c)		(c > 96 && c < 123) ? c - 32 : c;
 # define TO_LOWER(c)		(c > 64 && c < 91) ? c + 32 : c;
@@ -55,12 +57,6 @@ typedef struct	s_queue
 
 }				t_queue;
 
-typedef struct	s_list
-{
-	int				key;
-	struct s_list	*next;
-}				t_list;
-
 /*
 **	io/
 */
@@ -73,11 +69,10 @@ int				gnl(int fd, char **line);
 /*
 **	list/
 */
-int				add_list(t_list **list, int key);
-t_list			*create_list(int key);
-void			free_list(t_list **list);
-void			print_list(t_list *list);
-void			remove_list(t_list **list, int key);
+int				ft_add_list(t_node **list, void *data);
+void			ft_free_list(t_node **list, void (*fct_free)(void *));
+void			ft_print_list(t_node *list);
+void			ft_remove_list(t_node **list, void *data);
 
 /*
 **	memory/
@@ -147,6 +142,7 @@ char			*ft_strtrim(char *str);
 int				ft_count_words(char *str);
 int				ft_is_sort(int *array, int length, int (*f)(int, int));
 void			ft_sort_wordtab(char **array);
+void			ft_set_max_fd(int *maxfd, int newfd);
 
 /*
 **	ft_printf/

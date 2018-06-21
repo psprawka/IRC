@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_irc.h                                           :+:      :+:    :+:   */
+/*   irc.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:30:53 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 08:26:44 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 14:16:21 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,40 @@
 # include <curses.h>
 # include "libft.h"
 
+# include "irc_prototypes.h" 
+
 # define	BUFF_SIZE		64
-# define	MAX_CLIENT_FD	10
 # define	SERVPASSWD		"polcia"
 # define 	DEF_COLOR		CYAN
+# define	SERV_BUFF_SIZE	2048
 
 typedef struct	s_client
 {
-	int		sockfd;
+	int		fd;
 	char	*color;
-	char	*name;
+	char	*nick;
 	char	*room;
 }				t_client;
 
-/*
-**	server_parse.c
-*/
-void	error(int errnb, char *msg, bool ifexit);
-void	parse_args_serv(int ac, char **av);
-void	parse_args_client(int ac, char **av);
+typedef struct	s_server
+{
+	int		serverfd;
+	int		max_fd;
+	char	*buff;
+	t_node	*clients;
+	t_node	*rooms;
+	fd_set	client_fds;
+}				t_server;
 
-/*
-**	server_process.c
-*/
-void	process_data(int currfd, int sockfd, fd_set *client_fds);
+typedef struct	s_request
+{
+	char	*request;
+	int		len;
+	void	(*fct)(int, char *);
+}				t_request;
 
-/*
-**	server.c
-*/
-void	check_select_fds(fd_set *client_fds, int sockfd);
-void	runserver(fd_set client_fds, int sockfd);
-int		server_socket(int port);
-int		main(int ac, char **av);
+extern t_client *g_clients[FD_SETSIZE];
+extern t_server	g_server;
 
 /*
 **	struct sockaddr_in

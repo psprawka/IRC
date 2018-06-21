@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_list.c                                         :+:      :+:    :+:   */
+/*   request_room.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/21 03:35:23 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 09:36:34 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/21 11:28:41 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/21 13:23:34 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "irc.h"
 
-int		ft_add_list(t_node **list, void *data)
+void	request_room(int fd, char *msg)
 {
-	t_node *tmp;
-
-	tmp = *list;
-	if (!tmp)
-	{
-		*list = ft_init_node(data, sizeof(data));
-		return (EXIT_SUCCESS);
-	}
-	while (tmp->next)
-		tmp = tmp->next;
-
-	tmp->next = ft_init_node(data, sizeof(data));
-	return (EXIT_SUCCESS);
+	;
+	
 }
-
-
