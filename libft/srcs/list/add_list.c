@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   add_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/21 03:35:23 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/21 04:27:18 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+int		add_list(t_list **list, int key)
+{
+	t_list *tmp;
 
-# define	GNL_BUFF_SIZE 100
+	tmp = *list;
+	if (!tmp)
+	{
+		*list = create_list(key);
+		return (EXIT_SUCCESS);
+	}
+	while (tmp->next)
+		tmp = tmp->next;
 
-int		get_next_line(const int fd, char **line);
+	tmp->next = create_list(key);
+	return (EXIT_SUCCESS);
+}
 
-#endif
+

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2017/07/03 19:18:27 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/17 13:41:38 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+char	*ft_strncpy(char *str, int size)
+{
+	char	*new;
+	int		i;
 
-# define	GNL_BUFF_SIZE 100
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	if (!(new = ft_strnew(size + 1)))
+		return (NULL);
+	while (i < size)
+	{
+		new[i] = str[i];
+		i++;
+	}
+	return (new);
+}

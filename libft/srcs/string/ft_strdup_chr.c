@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   ft_strdup_chr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/17 12:30:57 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/17 14:15:19 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+char	*ft_strdup_chr(char *src, char c)
+{
+	char	*dest;
+	int		len;
 
-# define	GNL_BUFF_SIZE 100
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	len = 0;
+	while (src[len] != '\0' && src[len] != c)
+		len++;
+	if (!(dest = ft_strnew(len)))
+		return (NULL);
+		
+	dest = ft_strncpy(src, len);
+	return (dest);
+}

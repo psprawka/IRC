@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/17 12:21:31 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/17 13:14:13 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+void	ft_swap(int *a, int *b)
+{
+	int		c;
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
-
-# define	GNL_BUFF_SIZE 100
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	c = *a;
+	*a = *b;
+	*b = c;
+}

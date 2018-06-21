@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/17 12:27:29 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/17 13:43:33 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+char	*ft_strnstr(char *str, char *to_find, size_t len)
+{
+	size_t		i;
+	unsigned	x;
 
-# define	GNL_BUFF_SIZE 100
+	i = 0;
+	if (!to_find)
+		return (str);
+	while (str[i] && (i < len))
+	{
+		x = 0;
+		while (str[i] && str[i] == to_find[x] && i < len)
+		{
+			x++;
+			i++;
+		}
+		if (to_find[x])
+			return ((char *)&str[i - x]);
+		i = i - x + 1;
+	}
+	return (NULL);
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	//look here something is ugly and may not work
+}

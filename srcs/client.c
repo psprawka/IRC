@@ -6,11 +6,11 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:29:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/24 15:28:51 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 08:27:16 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_irc.h"
+#include "irc.h"
 
 #define IS_ALPHA(c)	((c > 64 && c < 91) || (c > 96 && c < 123)) ? 1 : 0
 #define IS_WHITE(c)	(c == '\t' || c == ' ' || c == '\v') ? 1 : 0

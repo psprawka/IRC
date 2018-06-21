@@ -6,11 +6,11 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:25:37 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/23 13:44:19 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 08:27:24 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_irc.h"
+#include "irc.h"
 
 void	check_select_fds(fd_set *client_fds, int sockfd)
 {

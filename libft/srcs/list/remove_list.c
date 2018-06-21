@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   remove_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/06/21 03:35:15 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/21 04:27:38 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+void	remove_list(t_list **list, int key)
+{
+	t_list	*tmp;
+	t_list	*prev;
 
-# define	GNL_BUFF_SIZE 100
+	tmp = *list;
+	prev = NULL;
 
-int		get_next_line(const int fd, char **line);
-
-#endif
+	while (tmp)
+	{
+		if (tmp->key == key)
+		{
+			if (prev == NULL)
+				*list = tmp->next;
+			else
+			{
+				prev->next = tmp->next;
+				free(tmp);
+			}
+			return ;
+		}
+		prev = tmp;
+		tmp = tmp->next;
+	}
+}

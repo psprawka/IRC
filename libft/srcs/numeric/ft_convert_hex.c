@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gnl.h                                              :+:      :+:    :+:   */
+/*   ft_convert_hex.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/10 12:41:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/15 10:25:05 by psprawka         ###   ########.fr       */
+/*   Created: 2018/04/10 15:36:54 by psprawka          #+#    #+#             */
+/*   Updated: 2018/06/17 13:15:39 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GNL_H
-# define GNL_H
+#include "libft.h"
 
-# include <stdlib.h>
-# include <unistd.h>
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include "libft.h"
+char	*ft_convert_hex(unsigned long int nb, int type)
+{
+	char	*print;
+	int		i;
 
-# define	GNL_BUFF_SIZE 100
-
-int		get_next_line(const int fd, char **line);
-
-#endif
+	i = 0;
+	print = ft_memalloc(21);
+	if (nb == 0)
+		print[i] = '0';
+	if (type == 0)
+		while (nb != 0)
+		{
+			print[i++] = "0123456789abcdef"[nb % 16];
+			nb /= 16;
+		}
+	else
+		while (nb != 0)
+		{
+			print[i++] = "0123456789ABCDEF"[nb % 16];
+			nb /= 16;
+		}
+	return (ft_strrev(print));
+}

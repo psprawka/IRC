@@ -6,11 +6,11 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 17:24:12 by psprawka          #+#    #+#             */
-/*   Updated: 2018/05/23 13:30:48 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 08:27:14 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_irc.h"
+#include "irc.h"
 
 void	error(int errnb, char *msg, bool ifexit)
 {
