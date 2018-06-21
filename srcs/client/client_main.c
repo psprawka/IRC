@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:29:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:30:29 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 15:18:51 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@ static int 	run_client(int sockfd, int max_fd, fd_set client_fds)
 	int			i;
 	
 	select_fds = client_fds;
-	while (select(max_fd, &select_fds, NULL, NULL, NULL) == -1)
+	while (select(max_fd + 1, &select_fds, NULL, NULL, NULL) > -1)
 	{
 		i = 0;
 		while (i < max_fd + 1)
 		{
 			if (FD_ISSET(i, &client_fds))
 			{
-				if (i == 1)
+				if (i != 1)
 					send_message_to_server(sockfd);
 				else if (recv_message_from_server(sockfd) == EXIT_FAILURE)
-					break;
+					return (EXIT_FAILURE);
 			}
 			i++;
 		}
@@ -72,6 +72,6 @@ int			main(int ac, char **av)
 	FD_ZERO(&client_fds);
 	FD_SET(sockfd, &client_fds);
 	FD_SET(1, &client_fds);
-	ft_set_max_fd(&max_fd, sockfd);
+	max_fd = sockfd;
 	return (run_client(sockfd, max_fd, client_fds));
 }

@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:30:53 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:16:21 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 15:06:23 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 
 # include "irc_prototypes.h" 
 
-# define	BUFF_SIZE		64
 # define	SERVPASSWD		"polcia"
 # define 	DEF_COLOR		CYAN
+# define	BUFF_SIZE		2048
 # define	SERV_BUFF_SIZE	2048
 
 typedef struct	s_client

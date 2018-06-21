@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 17:26:09 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:17:55 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 15:19:49 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		process_request(int clientfd, char *msg)
 	int i;
 
 	i = 0;
+	printf("processing\n");
 	while (g_requests[i].request)
 	{
 		if (!ft_strncmp(msg, g_requests[i].request, g_requests[i].len))
@@ -36,6 +37,7 @@ int		process_request(int clientfd, char *msg)
 		}
 		i++;
 	}
+	printf("exit\n");
 	return (EXIT_FAILURE);
 }
 
@@ -46,8 +48,10 @@ void	process_data(int clientfd)
 
 	if ((ret = recv(clientfd, buff, BUFF_SIZE, 0)) > 0)
 	{
+		printf("Im getting here\n");
 		if (process_request(clientfd, buff) == EXIT_SUCCESS)
 			return ;
+		printf("Im getting here\n");
 		if (send_message(clientfd, buff) == EXIT_FAILURE)
 			error(0, "Send", false);
 	}
