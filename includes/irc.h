@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:30:53 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 06:56:38 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 11:16:29 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,16 @@ typedef struct	s_request
 extern t_client *g_clients[FD_SETSIZE];
 extern t_server	g_server;
 
-/*
-**	struct sockaddr_in
-**	{
-**		sa_family_t sin_family; 		ddress Family/rodzina adresów
-**		uint16_t sin_port;				Port number/numer portu
-**		struct in_addr sin_addr;		Internet address/adres internetowy
-**		unsigned char sin_zero[8];		Pad bytes/ dla zachowania rozmiaru struct sockaddr
-**	};
-**
-**	my_addr.sin_port = 0; // wybierz losowo nieu˙zywany port
-**	my_addr.sin_addr.s_addr = INADDR_ANY; // u˙zyj mojego adresu IP
-**
-**	FD_SETSIZE is 1024
-*/
+//	todo:
+//	-> add termcaps;								1-2h
+//	-> leaks;										1h
+//	-> norminette;									10mins
+//	-> quit option;									20mins
+//	-> connect option;								30mins
+//	-> time option;									30mins
+//	-> list option (lists all channels);			10mins
+//	-> write strjoin_infinity;						30-60mins
+//	-> circular buffer;								30-60mins
+//	-> maybe add modes sometime in teh future;		5h
 
 #endif

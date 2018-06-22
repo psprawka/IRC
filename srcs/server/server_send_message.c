@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 12:23:26 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 07:10:59 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 08:56:10 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	send_system_message(int clientfd, char *msg)
 
 void	send_welcome_message(int clientfd)
 {
-	ft_strcat(g_server.buff, "\nWelcome ");
+	ft_strcpy(g_server.buff, "\nWelcome ");
 	ft_strcat(g_server.buff, g_clients[clientfd]->color);
 	ft_strcat(g_server.buff, g_clients[clientfd]->nick);
 	ft_strcat(g_server.buff, GREY);
@@ -38,6 +38,7 @@ void	send_welcome_message(int clientfd)
 	ft_strcat(g_server.buff, " -> \"/color <color>\" - change your color,\n");
 	ft_strcat(g_server.buff, " -> \"/nick <nickname>\" - choose your nickname,\n");
 	ft_strcat(g_server.buff, " -> \"/msg <nick> <message>\" - send a private message,\n");
+	ft_strcat(g_server.buff, " -> \"/clear\" - clear you screen,\n");
 	ft_strcat(g_server.buff, " -> \"/fd\" - find out what's your unique client number.\n\n");
 	ft_strcat(g_server.buff, "You can find a list of available colors under \"/rainbow\" comamnd.\n");
 	ft_strcat(g_server.buff, "Thank you for joining our chat! - teamserver\n\n");

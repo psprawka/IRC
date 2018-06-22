@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:35:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:20:07 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 10:45:01 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void			remove_node(t_queue **queue, t_node *prev, t_node *remove);
 /*
 **	string/
 */
+int				ft_are_whitespaces(char *str);
 void			ft_putchar(char c);
 void			ft_putendl(char *str);
 void			ft_putstr(char *s);

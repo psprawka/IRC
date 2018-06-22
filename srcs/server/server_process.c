@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 17:26:09 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 05:18:08 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 08:59:18 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_request	g_requests[] =
 	{"/nick ", 6, request_nick},
 	{"/msg ", 5, request_msg},
 	{"/fd", 3, request_fd},
+	{"/clear", 6, request_clear},
 	{"/rainbow", 8, request_colors_list},
 	{NULL, 0, NULL}
 };
@@ -50,7 +51,6 @@ void	process_data(int clientfd)
 	ft_bzero(buff, BUFF_SIZE);
 	if ((ret = recv(clientfd, buff, BUFF_SIZE, 0)) > 0)
 	{
-	
 		if (process_request(clientfd, buff) == EXIT_SUCCESS)
 			return ;
 		if (send_message(clientfd, buff) == EXIT_FAILURE)
@@ -58,8 +58,8 @@ void	process_data(int clientfd)
 	}
 	else
 	{
-		ret == 0 ? printf("Client [%d] quit\n", clientfd) :error(0, "Recv", false);
-		FD_CLR(clientfd, &g_server.client_fds);
-		close(clientfd);
+		if (ret < 0)
+			error(0, "Recv", false);
+		client_quit(clientfd);
 	}
 }
