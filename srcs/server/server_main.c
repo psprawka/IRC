@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:25:37 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 15:22:10 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 04:05:21 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,8 @@ static int	run_server(void)
 			if (FD_ISSET(i, &select_fds))
 				i == g_server.serverfd ? new_client() : process_data(i);
 			i++;
-			printf("eut\n");
 		}
 		select_fds = g_server.client_fds;
-		printf("NEW FDSSS\n");
 	}
 	return (error(0, "Select", true));
 }

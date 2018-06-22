@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:29:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 15:18:51 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 04:05:00 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ static int 	run_client(int sockfd, int max_fd, fd_set client_fds)
 	int			i;
 	
 	select_fds = client_fds;
-	while (select(max_fd + 1, &select_fds, NULL, NULL, NULL) > -1)
+	while (select(FD_SETSIZE, &select_fds, NULL, NULL, NULL) > -1)
 	{
 		i = 0;
-		while (i < max_fd + 1)
+		while (i < FD_SETSIZE)
 		{
-			if (FD_ISSET(i, &client_fds))
+			if (FD_ISSET(i, &select_fds))
 			{
-				if (i != 1)
+				if (i == 1)
 					send_message_to_server(sockfd);
 				else if (recv_message_from_server(sockfd) == EXIT_FAILURE)
 					return (EXIT_FAILURE);

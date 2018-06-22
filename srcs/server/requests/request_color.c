@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 11:28:49 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:25:32 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 02:37:24 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void	request_colors_list(int fd, char *msg)
 	while (g_colors[itable].color)
 	{
 		ft_strcat(g_server.buff, " -> ");
+		ft_strcat(g_server.buff, g_colors[itable].value);
 		ft_strcat(g_server.buff, g_colors[itable].color);
+		ft_strcat(g_server.buff, NORMAL);
 		ft_strcat(g_server.buff, "\n");
 		itable++;
 	}

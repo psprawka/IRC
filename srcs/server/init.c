@@ -6,18 +6,45 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 10:13:04 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:13:17 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 03:09:34 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "irc.h"
+
+static char	*init_nick(char *nick)
+{
+	t_node		*node;
+	t_client	*peer;
+	int			number;
+
+	number = 2;
+	ft_bzero(g_server.buff, SERV_BUFF_SIZE);
+	ft_strcpy(g_server.buff, nick);
+	node = g_server.clients;
+	while (node)
+	{
+		peer = node->data;
+		if (!ft_strcmp(peer->nick, g_server.buff))
+		{
+			ft_bzero(g_server.buff, SERV_BUFF_SIZE);
+			ft_strcpy(g_server.buff, nick);
+			ft_strcat(g_server.buff, ft_itoa(number++));
+			node = g_server.clients;
+		}
+		else
+			node = node->next;
+	}
+	free(nick);
+	return (ft_strdup(g_server.buff));
+}
 
 t_client	*init_client(int sockfd, char *nick)
 {
 	t_client *new;
 
 	new = (t_client *)ft_strnew(sizeof(t_client));
-	new->nick = nick;
+	new->nick = init_nick(nick);
 	new->fd = sockfd;
 	new->color = DEF_COLOR;
 	new->room = NULL;

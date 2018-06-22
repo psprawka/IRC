@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 12:26:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 15:17:52 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 04:06:27 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	new_client(void)
 
 	socklen = sizeof(struct sockaddr_in);
 	ft_bzero(&temp, sizeof(struct sockaddr_in));
-	printf("new client\n");
 	if ((connfd = accept(g_server.serverfd, (struct sockaddr *)&temp, &socklen)) == -1)
 		error(0, "Accept", false);
 	else

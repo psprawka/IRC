@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 13:10:17 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 13:24:28 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 04:05:41 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,12 @@ int		recv_message_from_server(int sockfd)
 	char		getbuff[BUFF_SIZE];
 	int			ret;
 
+	ft_bzero(getbuff, BUFF_SIZE);
 	if ((ret = recv(sockfd, getbuff, BUFF_SIZE, 0)) < 1)
 	{
 		printf("Server quit, try again later!\n");
 		return (EXIT_FAILURE);
 	}
-	ft_putendl_fd(getbuff, 1);
+	ft_putstr(getbuff);
 	return (EXIT_SUCCESS);
 }

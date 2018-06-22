@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:35:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:20:07 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/21 14:19:53 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,6 @@ int				ft_count_words(char *str);
 int				ft_is_sort(int *array, int length, int (*f)(int, int));
 void			ft_sort_wordtab(char **array);
 void			ft_set_max_fd(int *maxfd, int newfd);
-
 /*
 **	ft_printf/
 */
@@ -155,6 +154,6 @@ int				ft_printf(const char *format, ...);
 //	-> string/strsplit
 //	-> string/strnstr
 //	-> string/strtrim
-//	-> tools/either of them
+//	-> tools/either of them besides ft_set_max_fd
 
 #endif
