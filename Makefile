@@ -6,7 +6,7 @@
 #    By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/04/09 23:21:55 by psprawka          #+#    #+#              #
-#    Updated: 2018/06/21 14:05:57 by psprawka         ###   ########.fr        #
+#    Updated: 2018/06/22 07:11:59 by psprawka         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,12 @@ SRCS_SERVER = $(SRCS_DIR)$(SERVER)client.c \
 		$(SRCS_DIR)$(SERVER)server_main.c \
 		$(SRCS_DIR)$(SERVER)server_process.c \
 		$(SRCS_DIR)$(SERVER)server_send_message.c \
+		$(SRCS_DIR)$(SERVER)$(REQUEST)request_channel.c \
 		$(SRCS_DIR)$(SERVER)$(REQUEST)request_color.c \
 		$(SRCS_DIR)$(SERVER)$(REQUEST)request_fd.c \
+		$(SRCS_DIR)$(SERVER)$(REQUEST)request_msg.c \
 		$(SRCS_DIR)$(SERVER)$(REQUEST)request_nick.c \
-		$(SRCS_DIR)$(SERVER)$(REQUEST)request_room.c \
+		$(SRCS_DIR)$(SERVER)$(REQUEST)request_tools.c \
 		$(SRCS_DIR)parse.c \
 		$(SRCS_DIR)tools.c
 

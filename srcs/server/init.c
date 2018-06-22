@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 10:13:04 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 03:09:34 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 07:10:21 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_client	*init_client(int sockfd, char *nick)
 	new->nick = init_nick(nick);
 	new->fd = sockfd;
 	new->color = DEF_COLOR;
-	new->room = NULL;
+	new->channel = NULL;
 	return (new);	
 }
 

@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/20 17:26:09 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 04:05:26 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 05:18:08 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 t_request	g_requests[] = 
 {
-	{"/nick ", 6, request_nick},
+	{"/join ", 6, request_channel_join},
+	{"/leave", 6, request_channel_leave},
+	{"/who", 4, request_channel_who},
 	{"/color ", 7, request_color},
-	{"/rainbow", 8, request_colors_list},
+	{"/nick ", 6, request_nick},
+	{"/msg ", 5, request_msg},
 	{"/fd", 3, request_fd},
-	{"/room ", 6, request_room},
+	{"/rainbow", 8, request_colors_list},
 	{NULL, 0, NULL}
 };
 

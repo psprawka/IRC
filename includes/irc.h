@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/18 18:30:53 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 15:06:23 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 06:56:38 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct	s_client
 	int		fd;
 	char	*color;
 	char	*nick;
-	char	*room;
+	char	*channel;
 }				t_client;
 
 typedef struct	s_server
@@ -48,7 +48,7 @@ typedef struct	s_server
 	int		max_fd;
 	char	*buff;
 	t_node	*clients;
-	t_node	*rooms;
+	t_node	*channels;
 	fd_set	client_fds;
 }				t_server;
 

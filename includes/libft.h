@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/20 18:35:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/21 14:20:07 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 05:56:46 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,16 @@
 # define PURPLE			"\033[38;5;55m"
 # define MAROON			"\033[38;5;88m"
 # define GREY			"\033[38;5;246m"
+
+# define BOLD			"\033[1m"
+# define WHATISIT		"\033[2m"
+# define ITALIC			"\033[3m"
+# define UNDERLINE 		"\033[4m"
+# define CROSSED 		"\033[9m"
+# define NO_BOLD		"\033[21m"
+# define NO_ITALIC		"\033[23m"
+# define NO_UNDERLINE 	"\033[24m"
+# define NO_CROSSED 	"\033[29m"
 
 # define IS_ALNUM(c)		(c > 47 && c < 58) || (c > 64 && c < 91) || (c > 96 && c < 123) ? 1 : 0;
 # define IS_ALPHA(c)		(c > 64 && c < 91) || (c > 96 && c < 123) ? 1 : 0;

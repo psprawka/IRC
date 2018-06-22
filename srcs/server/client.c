@@ -6,7 +6,7 @@
 /*   By: psprawka <psprawka@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 12:26:16 by psprawka          #+#    #+#             */
-/*   Updated: 2018/06/22 04:06:27 by psprawka         ###   ########.fr       */
+/*   Updated: 2018/06/22 07:22:58 by psprawka         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	new_client(void)
 		error(0, "Accept", false);
 	else
 	{
-		printf("New client [%d] connected\n", connfd);
+		printf("New client [%d] connected.\n", connfd);
 		ft_set_max_fd(&g_server.max_fd, connfd);
 		FD_SET(connfd, &g_server.client_fds);
 		g_clients[connfd] = init_client(connfd, ft_strdup(getenv("USER")));
