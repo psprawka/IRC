@@ -29,4 +29,4 @@ make
 </br>
 You're connected to the server! 😁
 </br>
-Add more clients repeating step 2 and enjoy spy-free 42 Underground Chat 🤫🤫
+Add more clients repeating step 2 and enjoy spy-free 42 Underground Chat 😎😎😎
