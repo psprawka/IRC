@@ -10,8 +10,8 @@ Using **circular buffor**, **TPC/IP network**, **select()** function for sockets
 
 <p float="left">
   <img src="imgs/command1.png" width="35.1%"/>
-  <img src="imgs/command3.png" width="28.2%"/>
-  <img src="imgs/command2.png" width="35.5%"/>
+  <img src="imgs/command3.png" width="28.3%"/>
+  <img src="imgs/command2.png" width="35.6%"/>
   
 </p>
 </br>
