@@ -1,4 +1,4 @@
-# IRC (42 Underground Chat)
+# IRC (42 Underground Chat) 🙊🙉
 
 Using **circular buffor**, **TPC/IP network**, **select()** function for sockets management and **~~tempcaps~~**_(implementation soon)_ I created my own spy-free and money-free messanging system allowing multiple clients to connect (simultaneous) and chat within channels or/and private conversations. Everyone is able to to send and receive messages, as well as join/leave/create channels. In addition, each new user is greeted with a server-sent message introducing features that user can utilize whenever adn wherever within a program:
 
@@ -29,4 +29,4 @@ make
 </br>
 You're connected to the server! 😁
 </br>
-Add more clients repeating step 2 and enjoy spy-free 42 Underground Chat 😎😎😎 
+Add more clients repeating step 2 and enjoy spy-free 42 Underground Chat 🤫😎 
