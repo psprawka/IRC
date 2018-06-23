@@ -9,9 +9,10 @@ Using **circular buffor**, **TPC/IP network**, **select()** function for sockets
 ## 42 Underground Chat
 
 <p float="left">
-  <img src="imgs/command1.png" width="34.5%"/>
-  <img src="imgs/command2.png" width="34.5%"/>
-  <img src="imgs/command3.png" width="30%"/>
+  <img src="imgs/command1.png" width="35.5%"/>
+  <img src="imgs/command3.png" width="28%"/>
+  <img src="imgs/command2.png" width="35.5%"/>
+  
 </p>
 </br>
 
