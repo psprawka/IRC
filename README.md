@@ -9,7 +9,7 @@ Using **circular buffor**, **TPC/IP network**, **select()** function for sockets
 </br>
 
 ## An exemplary conversation between clients within a channel
-(All ~~crossed messages~~ are termcaps I have to get rid of and make interface nicer)
+(All [~~crossed messages~~] are termcaps I have to get rid of and make interface nicer)
 ![](imgs/conversation.png)
 </br>
 
@@ -29,8 +29,10 @@ cd IRC-psprawka
 make 
 ```
 1. In first terminal run following command:
-```./server <port>``` i.e. ```./server 8888```
+```./server <port>``` i.e. ```./server 8888```.
 2. In second window run a client with a port matching server port and server's machine adderss:
-```./client <port> <address>``` thus if you run your client on localhost ```./client 8888 0.0.0.0```
+```./client <port> <address>``` thus if you run your client on localhost ```./client 8888 0.0.0.0```.
+</br>
 You're connected to the server! 😁
+</br>
 Add more clients repeating step 2 and enjoy spy-free 42 Underground Chat 😎😎😎 
