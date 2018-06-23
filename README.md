@@ -2,23 +2,16 @@
 
 Using **circular buffor**, **TPC/IP network**, **select()** function for sockets management and **~~tempcaps~~**_(implementation soon)_ I created my own spy-free and money-free messanging system allowing multiple clients to connect (simultaneous) and chat within channels or/and private conversations. Everyone is able to to send and receive messages, as well as join/leave/create channels. In addition, each new user is greeted with a server-sent message introducing features that user can utilize whenever adn wherever within a program:
 
-<p float="left">
-  <img src="imgs/irc1.png" width="49.5%"/>
-  <img src="imgs/irc2.png" width="49.5%"/>
-</p>
-</br>
-
-## An exemplary conversation between clients within a channel
-(All [~~crossed messages~~] are termcaps I have to get rid of and make interface nicer)
-![](imgs/conversation.png)
+![](src="imgs/irc1.png")
+![](src="imgs/irc2.png")
 </br>
 
 ## 42 Underground Chat
 
 <p float="left">
-  <img src="imgs/command1.png" width="33%"/>
-  <img src="imgs/command2.png" width="33%"/>
-  <img src="imgs/command3.png" width="33%"/>
+  <img src="imgs/command1.png" width="34.5%"/>
+  <img src="imgs/command2.png" width="34.5%"/>
+  <img src="imgs/command3.png" width="30%"/>
 </p>
 </br>
 
